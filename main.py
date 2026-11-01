@@ -1,6 +1,7 @@
 
 import asyncio
 import json
+import logging
 import os
 import sqlite3
 from rag import search_documents
@@ -562,9 +563,9 @@ async def health(request):
 
 
 async def on_startup(bot: Bot):
-    domain = os.getenv("RAILWAY_PUBLIC_DOMAIN")
+    domain = os.getenv("RENDER_EXTERNAL_HOSTNAME")
     if not domain:
-        raise RuntimeError("Не задан RAILWAY_PUBLIC_DOMAIN")
+        raise RuntimeError("Не задан RENDER_EXTERNAL_HOSTNAME")
 
     webhook_url = f"https://{domain}{WEBHOOK_PATH}"
 
@@ -597,7 +598,7 @@ def main():
 
     setup_application(app, dp, bot=bot)
 
-    port = int(os.getenv("PORT", "8080"))
+    port = int(os.getenv("PORT", "10000"))
 
     web.run_app(
         app,
