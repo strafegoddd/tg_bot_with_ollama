@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+*.pyc
+users.db
+survey_results.json
+chroma_db/
+*.log

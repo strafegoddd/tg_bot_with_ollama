@@ -1,0 +1,6 @@
+aiogram
+python-dotenv
+aiohttp
+discord.py
+chromadb
+tzdata
